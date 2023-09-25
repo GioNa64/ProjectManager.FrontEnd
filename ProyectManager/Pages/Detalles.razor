@@ -1,0 +1,18 @@
+﻿@page "/detalles/{id:int}"
+
+@using ProyectManager.Models
+@using ProyectManager.Services
+@inject IProyectoService ProyectoService
+
+<MudText Typo="Typo.h5">Detalles del Proyecto</MudText>
+
+<h3>Detalles</h3>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    Proyecto proyecto = new Proyecto();
+
+    
+}
