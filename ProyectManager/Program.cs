@@ -12,6 +12,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https:/
  
 builder.Services.AddScoped<IProyectoService, ProyectoService>();
 builder.Services.AddScoped<IColaboradorService, ColaboradorService>();
+builder.Services.AddScoped<ITareaService, TareaService>();
 
 builder.Services.AddMudServices(); //Importación de los servicios
 await builder.Build().RunAsync();
