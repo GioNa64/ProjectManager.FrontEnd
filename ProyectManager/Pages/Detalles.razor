@@ -6,13 +6,38 @@
 
 <MudText Typo="Typo.h5">Detalles del Proyecto</MudText>
 
-<h3>Detalles</h3>
+@if (proyecto == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <MudCard>
+        <MudCardHeader Class="blue lighten-2">
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">@proyecto.Nombre</MudText>
+            </CardHeaderContent>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudText Typo="Typo.body2">@proyecto.IdAdministrador</MudText>
+        </MudCardContent>
+        <MudCardContent>
+            <MudText Typo="Typo.body2">@proyecto.Descripcion</MudText>
+        </MudCardContent>
+    </MudCard>
+}
 
 @code {
     [Parameter]
     public int id { get; set; }
 
     Proyecto proyecto = new Proyecto();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id > 0)
+            proyecto = await ProyectoService.GetById(id);
+    }
 
     
 }
