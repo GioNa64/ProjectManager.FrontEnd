@@ -24,5 +24,10 @@ namespace ProyectManager.Services
             return JsonSerializer.Deserialize<IEnumerable<Tarea>>(resp, options);
 
         }
+        public async Task<Tarea> GetById(int id)
+        {
+            string resp = await client.GetStringAsync($"Tarea/{id}");
+            return JsonSerializer.Deserialize<Tarea>(resp, options);
+        }
     }
 }
